@@ -33,3 +33,10 @@ def edit(request, squirrel_id):
                 'form':form
         }
         return render(request,'sightings/edit.html',context)
+
+def map(request):
+    mappings = Squirrel.objects.all()
+    context = {
+        'mappings': mappings
+    }
+    return render(request, 'sightings/map.html', context)
