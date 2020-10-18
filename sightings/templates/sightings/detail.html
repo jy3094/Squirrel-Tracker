@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <body>
+	    <p>
+	    <h3>Following informations are the detail information for squirrel under ID: {{ squirrel.Squirrel_ID }}</h3>
+	    <ul>
+		    <li>Logitude: {{ squirrel.X }}</li>
+		    <li>Latitude: {{ squirrel.Y }}</li>
+		    <li>Shift: {{ squirrel.Shift }}</li>
+		    <li>Date: {{ squirrel.Date }}</li>
+		    <li>Age: {{ squirrel.Age }}</li>
+		    <li>Primary Fur Color: {{  squirrel.Primary_Fur_Color  }}</li>
+	    </ul>
+	    </p>
+	<ul>
+	    {% for squirrel in squirrels %}
+	    <li><a href="{ url 'sightings:detail' %}">{{ squirrel.Squirrel_ID }}</a></li>
+	    {% endfor %}
+	</ul>
+    </body>
+<html>

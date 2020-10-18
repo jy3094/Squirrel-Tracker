@@ -1,9 +1,24 @@
 <!doctype html>
 <html>
+    <head>
+        <title>Squirrel Tracker</title>
+    </head>
+
     <body>
-	<p> Welcome to the Squirrel Tracking Website </p>
+	 <p>
+	 <h1> Welcome to the Squirrel Tracking Website</h1>
+	 </p>
 
 	<img src="https://i.pinimg.com/564x/21/fd/41/21fd410d4ef6371f0264af5b6aa28700.jpg" alt="Squirrel Pictures">
-
+	
+	</p>>
+	<h3>Current Squirrels in Database</h3>
+	<ul>
+	    {% for squirrel in squirrels %}
+	        <li>
+			<a href="{% url 'sightings:detail' squirrel.Squirrel_ID %}">{{ squirrel.Squirrel_ID }}</a>
+		</li>
+	    {% endfor %}
+	</ul>
     </body>
 </html>
