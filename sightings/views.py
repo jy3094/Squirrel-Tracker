@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse, HttpResponse
+from django.shortcuts import render, get_object_or_404, HttpResponse
 
 from .forms import Form, CreateForm
 from .models import Squirrel
@@ -64,6 +64,17 @@ def add(request):
                 'success': True
             }
             return render(request, 'sightings/add.html', context)
-        else :
+        else:
             return HttpResponse('Form data is invalid, invalid fields: ' + form.errors)
     return HttpResponse('Method not supported.')
+
+
+def stats(request):
+    # Get stats of all squirrels
+    if request.method == 'GET':
+        context = {
+            'squirrels': Squirrel.objects.all()
+        }
+        return render(request, 'sightings/stats.html', context)
+    else:
+        return HttpResponse('Method not supported.')
