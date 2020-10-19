@@ -1,40 +1,44 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect, reverse, HttpResponse
 
-from .models import Squirrel
 from .forms import Form
+from .models import Squirrel
+
 
 def index(request):
     squirrels = Squirrel.objects.all()
     context = {
-            'squirrels':squirrels
+        'squirrels': squirrels
     }
     return render(request, 'sightings/index.html', context)
 
+
 def detail(request, squirrel_id):
     squirrel = get_object_or_404(Squirrel, Squirrel_ID=squirrel_id)
-   
-    context = {
-        'squirrel':squirrel,
-    }
-
-    return render(request, 'sightings/detail.html', context)
-
-def edit(request, squirrel_id):
-    squirrel = get_object_or_404(Squirrel, Squirrel_ID=suqirrel_id)
-    if request.method=='Post':
+    if request.method == 'GET':
+        # Query detail of the squirrel
+        form = Form(instance=squirrel)
+        context = {
+            'form': form,
+            'squirrel_id': squirrel_id
+        }
+        return render(request, 'sightings/edit.html', context)
+    if request.method == 'POST':
+        # Edit detail of the squirrel
         form = Form(request.POST, instance=squirrel)
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings/{squirrel_id}')
+            context = {
+                'form': form,
+                'squirrel_id': squirrel_id,
+                'success': True
+            }
+            return render(request, 'sightings/edit.html', context)
         else:
-            form = Form(instance=squirre)
-        context = {
-                'form':form
-        }
-        return render(request,'sightings/edit.html',context)
+            return HttpResponse('Form data is invalid, invalid fields: ' + form.errors)
+    return HttpResponse('Method not supported.')
 
-def showmap(request):
+
+def show_map(request):
     sightings = Squirrel.objects.all()[:100]
     context = {
         'sightings': sightings

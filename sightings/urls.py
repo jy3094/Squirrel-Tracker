@@ -5,9 +5,8 @@ from . import views
 app_name = 'sightings'
 
 urlpatterns = [
-    path('', views.index),    
-    path('sightings/', views.index),
-    path('sightings/<squirrel_id>/', views.detail, name='detail'),
-    path('map/',views.showmap, name='showmap'),
+    path('', views.index, name='index'),
+    path('<squirrel_id>/', views.detail, name='detail'),
+    path('map/',views.show_map, name='show_map'),
 ]
 
