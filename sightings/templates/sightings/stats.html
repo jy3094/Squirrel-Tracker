@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stats of squirrels</title>
+</head>
+<body>
+<h3>Stats of squirrels</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Unique Squirrel ID</th>
+        <th>Age</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Primary Fur Color</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for squirrel in squirrels %}
+        <tr>
+            <td>{{ squirrel.Squirrel_ID }}</td>
+            <td>{{ squirrel.Age }}</td>
+            <td>{{ squirrel.Date }}</td>
+            <td>{{ squirrel.Location }}</td>
+            <td>{{ squirrel.Primary_Fur_Color }}</td>
+            </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

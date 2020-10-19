@@ -1,6 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New sighting</title>
+</head>
     <body>
-    <h3>New squirrel</h3>
+    <h3>New sighting</h3>
 	<form method="post">{% csrf_token %}
 		{{form.as_p}}
 		<br>
