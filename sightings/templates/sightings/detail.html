@@ -29,7 +29,7 @@
 	    </p>
 	<ul>
 	    {% for squirrel in squirrels %}
-	    <li><a href="{ url 'sightings:detail' %}">{{ squirrel.Squirrel_ID }}</a></li>
+	    <li><a href="{% url 'sightings:detail' squirrel.Squirrel_ID %}">{{ squirrel.Squirrel_ID }}</a></li>
 	    {% endfor %}
 	</ul>
     </body>
