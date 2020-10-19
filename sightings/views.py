@@ -35,7 +35,7 @@ def edit(request, squirrel_id):
         return render(request,'sightings/edit.html',context)
 
 def showmap(request):
-    sightings = Squirrel.objects.all()
+    sightings = Squirrel.objects.all()[:100]
     context = {
         'sightings': sightings
     }

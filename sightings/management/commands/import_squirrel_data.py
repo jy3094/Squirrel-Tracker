@@ -40,6 +40,6 @@ class Command(BaseCommand):
                             Indifferent = True if x['Indifferent']=='True' else False,
                             Runs_From = True if x['Runs from']=='True' else False,
                     )
-                    squirrel.save
+                    squirrel.save()
         except csv.Error as e:
             pring(f'An error has occured at {reader.line_num}')
