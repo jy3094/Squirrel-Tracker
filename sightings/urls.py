@@ -8,6 +8,6 @@ urlpatterns = [
     path('', views.index),    
     path('sightings/', views.index),
     path('sightings/<squirrel_id>/', views.detail, name='detail'),
-    path('map/',views.map, name='map'),
+    path('map/',views.showmap, name='showmap'),
 ]
 
