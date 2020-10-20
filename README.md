@@ -30,6 +30,7 @@ To update a particular squirrels sighting information, go to:
 To create a new squirrel sightings, go to:
 ```
 /sightings/add/
+```
 
 Stats for all the squirrel sightings can be found here:
 ```
