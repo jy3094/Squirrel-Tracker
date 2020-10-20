@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Stats of squirrels</title>
 </head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
 <body>
 <h3>Stats of squirrels</h3>
 <table>
@@ -19,11 +24,11 @@
     <tbody>
     {% for squirrel in squirrels %}
         <tr>
-            <td>{{ squirrel.Squirrel_ID }}</td>
-            <td>{{ squirrel.Age }}</td>
-            <td>{{ squirrel.Date }}</td>
-            <td>{{ squirrel.Location }}</td>
-            <td>{{ squirrel.Primary_Fur_Color }}</td>
+            <td style="text-align:center">{{ squirrel.Squirrel_ID }}</td>
+            <td style="text-align:center">{{ squirrel.Age }}</td>
+            <td style="text-align:center">{{ squirrel.Date }}</td>
+            <td style="text-align:center">{{ squirrel.Location }}</td>
+            <td style="text-align:center">{{ squirrel.Primary_Fur_Color }}</td>
             </tr>
     {% endfor %}
     </tbody>
