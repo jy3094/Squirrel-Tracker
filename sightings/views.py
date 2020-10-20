@@ -39,7 +39,7 @@ def detail(request, squirrel_id):
 
 
 def show_map(request):
-    sightings = Squirrel.objects.all()[:100]
+    sightings = Squirrel.objects.all()[:10]
     context = {
         'sightings': sightings
     }
