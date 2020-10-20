@@ -19,7 +19,6 @@ import sightings.views as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('map/', views.show_map, name='show_map'),
     path('sightings/', include('sightings.urls'))
 
 ]
