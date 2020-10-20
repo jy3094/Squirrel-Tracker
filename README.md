@@ -1,17 +1,38 @@
 # Squirrel-Tracker
 
-Part 1 A description of what has been implemented
+## Introduction
+This is a web application which is developped using Django to keep track of all the reported squirrels in Central Park. A 2018 Central Park Squirrel Census is uploaded to the database. The website allows the viwers to add unique squirrels, to update existing squirrels information, to view the general stats for the squirrels, and to view all the reported squirrels on Central Park's map. 
 
-#This only needs to be a paragraph or less of a description. More is welcome but not needed.
-
-
-Part 2 Contributors information
+## Contributors information
 
 Project Group Jing & Jiaqi, Section 1
 Name: [Jiaqi Yang,Jing Xiao]
 UNIs: [jy3094, jx2422]
 
 
-Part 3：A link to the server running your application
+## Detailed infomation
 
-#For example: https://<your project id>.appspot.com/
+The map for the first 100 sightings of squirrels can be found here:
+```
+/map/
+```
+
+List of all the squirrels in the database can be found here:
+```
+/sightings/
+```
+
+To update a particular squirrels sighting information, go to:
+```
+/sightings/<unique-squirrel-id>
+```
+
+To create a new squirrel sightings, go to:
+```
+/sightings/add/
+
+Stats for all the squirrel sightings can be found here:
+```
+/sightings/stats/
+```
+
