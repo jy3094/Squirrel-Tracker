@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, HttpResponse
 
 from .forms import Form, CreateForm
 from .models import Squirrel
+from django.db.models import Max,Count,Avg,Min
 
 
 def index(request):
@@ -71,10 +72,21 @@ def add(request):
 
 def stats(request):
     # Get stats of all squirrels
-    if request.method == 'GET':
+    if request.method == 'GET': 
         context = {
-            'squirrels': Squirrel.objects.all()
-        }
+            'squirrels': Squirrel.objects.all(),
+            'data_count':Squirrel.objects.all().aggregate(Count('Squirrel_ID'))["Squirrel_ID__count"],
+            'Age_Adult_count':Squirrel.objects.filter(Age = "Adult").count(),
+            'Age_Juvenile_count':Squirrel.objects.filter(Age = "Juvenile").count(),
+            'Date_max':Squirrel.objects.all().aggregate(Max('Date'))["Date__max"],
+            'Date_min':Squirrel.objects.all().aggregate(Min('Date'))["Date__min"],
+            'Shift_AM_count':Squirrel.objects.filter(Shift = "AM").count(),
+            'Shift_PM_count':Squirrel.objects.filter(Shift = "PM").count(),          
+            'Location_GP_count':Squirrel.objects.filter(Location = "Ground Plane").count(),
+            'Location_AG_count':Squirrel.objects.filter(Location = "Above Ground").count(),     
+            'Color_Gray_count':Squirrel.objects.filter(Primary_Fur_Color = "Gray").count(),
+            'Color_Cinnamon_count':Squirrel.objects.filter(Primary_Fur_Color = "Cinnamon").count(),
+            'Color_Black_count':Squirrel.objects.filter(Primary_Fur_Color = "Black").count(),
+            }
         return render(request, 'sightings/stats.html', context)
-    else:
-        return HttpResponse('Method not supported.')
+    return HttpResponse('Method not supported.')    

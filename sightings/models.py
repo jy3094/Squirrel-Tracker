@@ -83,7 +83,7 @@ class Squirrel(models.Model):
     
     # Location #
     Above_Ground = 'Above Ground'
-    Ground_Plane = 'Ground_Plane'
+    Ground_Plane = 'Ground Plane'
 
     LOCATION_CHOICES = [
         (Above_Ground,_('Above Ground')),
