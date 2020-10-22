@@ -6,22 +6,38 @@
     <body>
     <h1> Welcome to the Squirrel Tracking Website</h1>
 	<img src="https://i.pinimg.com/564x/21/fd/41/21fd410d4ef6371f0264af5b6aa28700.jpg" alt="Squirrel Pictures">
-	<h3>Current Squirrels in Database</h3>
 
+	<h3>To add a new squirrel and create a new sightings in Database: </h3>
     <ul>	  
     	<a href="add/"> Add </a>
 	</ul>	
-	
+
+	<h3>To view some general stats of our squirrels in Database:</h3>	
 	<ul>				
     	<a href="stats/"> Stats </a>
 	</ul>	
 
-	<ul>
-	    {% for squirrel in squirrels %}
-	        <li>
-			<a href="{% url 'sightings:detail' squirrel.Squirrel_ID %}">{{ squirrel.Squirrel_ID }}</a>
-		</li>
-	    {% endfor %}
-	</ul>
+	<h3>Current Squirrels in Database:</h3>
+	<table>
+    <thead>
+    <tr>
+        <th>Unique Squirrel ID</th>
+        <th>Date</th>
+        <th>Link to update this squirrel</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for squirrel in squirrels %}
+        <tr>
+            <td style="text-align:center">{{ squirrel.Squirrel_ID }}</td>
+            <td style="text-align:center">{{ squirrel.Date }}</td>
+            <td style="text-align:center">
+            <a href="{% url 'sightings:detail' squirrel.Squirrel_ID %}">Update<{{ squirrel.Squirrel_ID }}></a>
+            </td>
+            </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
     </body>
 </html>

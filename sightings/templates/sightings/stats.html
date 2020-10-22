@@ -10,25 +10,100 @@ table, th, td {
 }
 </style>
 <body>
-<h3>Stats of squirrels</h3>
+<h2>Stats of squirrels</h2>
+<input type="button" value="Back" onclick="document.location.href = '{% url 'sightings:index' %}'">
+
+<h3>The general stats:</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Total number of squirrels</th>
+        <th>Age</th>
+        <th>Date</th>
+        <th>Shift</th>
+        <th>Location</th>
+        <th>Primary Fur Color</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:center">{{data_count}}</td>
+            <td style="text-align:center">
+            <br>Adults:{{Age_Adult_count}}<br/>
+            <br>Juvenile:{{Age_Juvenile_count}}<br/>
+            </td>
+            <td style="text-align:center">
+            <br>Max:{{Date_max}}<br/>
+            <br>Min:{{Date_min}}<br/>            
+            </td>
+            <td style="text-align:center">
+            <br>AM:{{Shift_AM_count}}<br/>
+            <br>PM:{{Shift_PM_count}}<br/>
+            </td>
+            <td style="text-align:center">
+            <br>Ground Plane:{{Location_GP_count}}<br/>
+            <br>Above Ground:{{Location_AG_count}}<br/>
+            </td>
+            <td style="text-align:center">
+            <br>Gray:{{Color_Gray_count}}<br/>
+            <br>Cinnamon:{{Color_Cinnamon_count}}<br/>
+            <br>Black:{{Color_Black_count}}<br/>
+            </td>
+            </tr>
+    </tbody>
+</table>
+	
+<h3>The detailed information:</h3>
 <table>
     <thead>
     <tr>
         <th>Unique Squirrel ID</th>
+        <th>Logitude</th>
+        <th>Latitude</th>
+        <th>Shift</th>       
         <th>Age</th>
         <th>Date</th>
-        <th>Location</th>
         <th>Primary Fur Color</th>
+        <th>Location</th>
+        <th>Running</th>
+        <th>Chasing</th>       
+        <th>Climbing</th>
+        <th>Eating</th>
+        <th>Foraging</th>
+        <th>Kuks</th>
+        <th>Quaas</th>
+        <th>Moans</th>       
+        <th>Tail Flags</th>
+        <th>Tail Twitch</th>
+        <th>Approaches</th>
+        <th>Indifferent</th>
+        <th>Runs From</th>
     </tr>
     </thead>
     <tbody>
     {% for squirrel in squirrels %}
         <tr>
             <td style="text-align:center">{{ squirrel.Squirrel_ID }}</td>
+            <td style="text-align:center">{{ squirrel.X }}</td>
+            <td style="text-align:center">{{ squirrel.Y }}</td> 
+            <td style="text-align:center">{{ squirrel.Shift }}</td>           
             <td style="text-align:center">{{ squirrel.Age }}</td>
             <td style="text-align:center">{{ squirrel.Date }}</td>
-            <td style="text-align:center">{{ squirrel.Location }}</td>
             <td style="text-align:center">{{ squirrel.Primary_Fur_Color }}</td>
+            <td style="text-align:center">{{ squirrel.Location }}</td>
+            <td style="text-align:center">{{ squirrel.Running }}</td>
+            <td style="text-align:center">{{ squirrel.Chasing }}</td>            
+            <td style="text-align:center">{{ squirrel.Climbing }}</td>
+            <td style="text-align:center">{{ squirrel.Eating }}</td>
+            <td style="text-align:center">{{ squirrel.Foraging }}</td>
+            <td style="text-align:center">{{ squirrel.Kuks }}</td>
+            <td style="text-align:center">{{ squirrel.Quaas }}</td>
+            <td style="text-align:center">{{ squirrel.Moans }}</td>
+            <td style="text-align:center">{{ squirrel.Tail_Flags }}</td>
+            <td style="text-align:center">{{ squirrel.Tail_Twitches }}</td>            
+            <td style="text-align:center">{{ squirrel.Approaches }}</td>
+            <td style="text-align:center">{{ squirrel.Indifferent }}</td>
+            <td style="text-align:center">{{ squirrel.Runs_From }}</td>
             </tr>
     {% endfor %}
     </tbody>

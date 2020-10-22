@@ -4,12 +4,13 @@
         <meta charset="UTF-8">
         <title>Edit detail of sighting</title>
     </head>
-    <body>
+    <body>       
+	       
     <h3>Edit detail of sighting: {{ squirrel_id }}</h3>
 	<form method="post">{% csrf_token %}
 		{{form.as_p}}
 		<br>
-		<input type="submit" name="Submit">
+		<input type="submit" name="Submit" value="Submit">
         <input type="button" value="Back" onclick="document.location.href = '{% url 'sightings:index' %}'">
 	</form>
     {% if success %}

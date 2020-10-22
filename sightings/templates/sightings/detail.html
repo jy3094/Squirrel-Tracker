@@ -5,6 +5,7 @@
         <title>Detail</title>
     </head>
     <body>
+	   {% for squirrel in squirrels %}
 	    <p>
 	    <h3>Following informations are the detail information for squirrel under ID: {{ squirrel.Squirrel_ID }}</h3>
 	    <ul>
@@ -32,9 +33,10 @@
 	    </ul>
 	    </p>
 	<ul>
-	    {% for squirrel in squirrels %}
+
 	    <li><a href="{% url 'sightings:detail' squirrel.Squirrel_ID %}">{{ squirrel.Squirrel_ID }}</a></li>
-	    {% endfor %}
+
 	</ul>
+    {% endfor %}
     </body>
 <html>

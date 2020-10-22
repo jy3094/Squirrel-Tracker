@@ -9,7 +9,7 @@
 	<form method="post">{% csrf_token %}
 		{{form.as_p}}
 		<br>
-		<input type="submit" name="Submit">
+		<input type="submit" name="Submit" value="Submit">
         <input type="button" value="Back" onclick="document.location.href = '{% url 'sightings:index' %}'">
 	</form>
     {% if success %}
